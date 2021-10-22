@@ -18,8 +18,7 @@ request.onsuccess = function(event) {
   
     // check if app is online, if yes run uploadTransfer() function to send all local db data to api
     if (navigator.onLine) {
-      // we haven't created this yet, but we will soon, so let's comment it out for now
-      // uploadTransfer();
+      uploadTransfer();
     }
 };
 
@@ -28,7 +27,7 @@ request.onerror = function(event) {
     console.log(event.target.errorCode);
 };
 
-// This function will be executed if we attempt to submit a new transfer and there's no internet connection
+// if there's no internet connection, save transfer info to an object on indexedDb, which can be found on dev tools application tab
 function saveRecord(record) {
     // open a new transaction with the database with read and write permissions 
     const transaction = db.transaction(['new_transfer'], 'readwrite');
@@ -39,3 +38,48 @@ function saveRecord(record) {
     // add record to your store with add method
     transferObjectStore.add(record);
 }
+
+function uploadTransfer() {
+    // open a transaction on your db
+    const transaction = db.transaction(['new_transfer'], 'readwrite');
+  
+    // access your object store
+    const transferObjectStore = transaction.objectStore('new_transfer');
+  
+    // get all records from store and set to a variable
+    const getAll = transferObjectStore.getAll();
+  
+    // upon a successful .getAll() execution, run this function
+    getAll.onsuccess = function() {
+        // if there was data in indexedDb's store, let's send it to the api server
+        if (getAll.result.length > 0) {
+            fetch('/api/transaction', {
+                method: 'POST',
+                body: JSON.stringify(getAll.result),//getAll.result is an array of all the data retrieved from indexedDb
+                headers: {
+                Accept: 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(serverResponse => {
+            if (serverResponse.message) {
+                throw new Error(serverResponse);
+            }
+            // open one more transaction
+            const transaction = db.transaction(['new_transfer'], 'readwrite');
+            // access the new_transfer object store
+            const transferObjectStore = transaction.objectStore('new_transfer');
+            // clear all items in your store
+            transferObjectStore.clear();
+
+            alert('All saved transfers have been submitted!');
+            })
+            .catch(err => {
+            console.log(err);
+            });
+        }
+    };
+}
+
+window.addEventListener('online', uploadTransfer);
