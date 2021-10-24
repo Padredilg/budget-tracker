@@ -1,13 +1,27 @@
 # Budget Tracker
+<a href='https://opensource.org/licenses/MIT'>[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)</a>
+  
+## Table of Contents
+- [Description](#Description)</br>
+- [Installation](#Installation)</br>
+- [Usage](#Usage)</br>
+- [License](#License)</br>
+- [Questions](#Questions)
 
-## User Story
-- AS AN avid traveler
-  - I WANT to be able to track my withdrawals and deposits with or without a data/internet connection
-  - SO THAT my account balance is accurate when I am traveling 
+## Description
+This downloadable application was created to help its user keep track of their funds. The user can input a value and give it a name, and select whether that transaction represents an expense or an addition to their funds.
 
-- GIVEN a budget tracker without an internet connection
-  - WHEN the user inputs an expense or deposit
-  - THEN they will receive a notification that they have added an expense or deposit
+## Installation
+To download this application from a desktop, you may click the `install` icon in the url and then click on the "install" button that appears. To download app from an iphone, you may click on the "share" button (looks like a square with an arrow that points up), then look for the "Add to Home Screen" option and click on it. 
 
-  - WHEN the user reestablishes an internet connection
-  - THEN the deposits or expenses added while they were offline are added to their transaction history and their totals are updated
+## Usage
+User interaction with this application boils down to choosing a name and value for a new transaction, then selecting whether it represents an addition or subtraction of funds.</br>
+<img alt="screenshot from website" src="./assets/images/bt-ss.png"></img>
+
+## License
+This application is covered under the <a href='https://opensource.org/licenses/MIT'>MIT License</a>
+
+## Questions
+<a href='https://github.com/Padredilg'>Padredilg</a></br>
+If you have any questions, you may email at padredilg@knights.ucf.edu
+
