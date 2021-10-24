@@ -12,7 +12,8 @@
 This downloadable application was created to help its user keep track of their funds. The user can input a value and give it a name, and select whether that transaction represents an expense or an addition to their funds.
 
 ## Installation
-To download this application from a desktop, you may click the `install` icon in the url and then click on the "install" button that appears. To download app from an iphone, you may click on the "share" button (looks like a square with an arrow that points up), then look for the "Add to Home Screen" option and click on it. 
+- To download this application from your desktop, you may click the `install` icon in the url and then click on the "install" button that appears.
+- To download app from an iphone, you may click on the "share" button (looks like a square with an arrow that points up), then look for the "Add to Home Screen" option and click on it. 
 
 ## Usage
 User interaction with this application boils down to choosing a name and value for a new transaction, then selecting whether it represents an addition or subtraction of funds.</br>
