@@ -17,6 +17,9 @@ This downloadable application was created to help its user keep track of their f
 
 ## Usage
 User interaction with this application boils down to choosing a name and value for a new transaction, then selecting whether it represents an addition or subtraction of funds.</br>
+</br>
+You may access the deployed application through this link: https://budget-tracker-padredilg.herokuapp.com/
+</br></br>
 <img alt="screenshot from website" src="./assets/images/bt-ss.png"></img>
 
 ## License
